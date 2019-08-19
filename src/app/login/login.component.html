@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input
+        type="password"
+        class="form-control"
+        id="pwd"
+        formControlName="password"
+      />
+    </div>
+    <!-- <div class="checkbox">
+      <label><input type="checkbox" /> Remember me</label>
+    </div> -->
+    <div style="display: flex; flex-direction: column;width: 50%; margin: auto" >
+        <button type="button" class="btn btn-default" (click)="login()">Login</button>
+        <button type="button" class="btn btn-default" style="background-color: #4367B2; color:#fff" (click)="loginService.FacebookAuth()">Login with Facebook</button>
+    </div>
+  </form>
