@@ -13,8 +13,8 @@
     ]
   },
   "hosting": {
-    "site": "harley-server",
-    "public": "public",
+    "site": "harleys-server",
+    "public": "dist/HarleyServer",
     "ignore": [
       "firebase.json",
       "**/.*",

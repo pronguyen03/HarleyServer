@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     });
   }
   public loginForm: FormGroup;
-  constructor(private loginService: LoginService) {
+  constructor(public loginService: LoginService) {
     this.initForm();
   }
 

@@ -21,7 +21,7 @@ import {AngularFireMessagingModule} from '@angular/fire/messaging';
 @NgModule({
   declarations: [AppComponent, LoginComponent, HeaderComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule
-  ,AngularFireModule.initializeApp(environment.firebaseConfig)
+  ,AngularFireModule.initializeApp(environment.firebase)
   ,AngularFireAuthModule
   , AngularFirestoreModule
   , AngularFireStorageModule
