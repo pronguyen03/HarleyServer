@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    $("#login-modal").modal('show');
+    // $("#login-modal").modal('show');
   }
 
 }

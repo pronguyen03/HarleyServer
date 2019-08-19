@@ -16,10 +16,11 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import {AngularFireMessagingModule} from '@angular/fire/messaging';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeaderComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, DashboardComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule
   ,AngularFireModule.initializeApp(environment.firebase)
   ,AngularFireAuthModule

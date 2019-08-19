@@ -1,0 +1,28 @@
+<h3 style="margin-left: 50px">Hot Drinking</h3>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <img src="assets/images/hong-tra-dao.jpg" class="img-thumbnail" alt="Cinque Terre" width="270" height="auto">
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <img src="assets/images/hong-tra-dao.jpg" class="img-thumbnail" alt="Cinque Terre" width="270" height="auto">
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <img src="assets/images/hong-tra-dao.jpg" class="img-thumbnail" alt="Cinque Terre" width="270" height="auto">
+    </div>  
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <img src="assets/images/hong-tra-dao.jpg" class="img-thumbnail" alt="Cinque Terre" width="270" height="auto">
+    </div>
+</div>
+
+<div style="position: absolute; bottom: 0px; right:0px">
+    <button type="button" (click)="changePopup()">{{ displayButton }}</button>
+    <iframe
+    *ngIf="isShown === true"
+    allow="microphone;"
+    width="300"
+    height="400"
+    src="https://console.dialogflow.com/api-client/demo/embedded/a1669dd2-9cf7-4600-ac8f-b0431a613465">
+    </iframe>
+</div>
