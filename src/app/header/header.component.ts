@@ -10,7 +10,27 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // $("#login-modal").modal('show');
   }
-
+  changeBackground(){
+    $(".collapse").on('show.bs.collapse', function(){
+      $('nav').removeClass('nav-transparent');
+      $('nav').addClass('nav-expand');
+      $('.navbar-collapse').addClass('nav-expand');
+    });
+    $(".collapse").on('hidden.bs.collapse', function(){
+      $('nav').addClass('nav-transparent');
+      $('nav').removeClass('nav-expand');
+      $('.navbar-collapse').removeClass('nav-expand');
+    });
+  }
+  focusNav(e){
+    console.log('a');
+    $('nav').removeClass('nav-transparent');
+    $('nav').addClass('nav-black');
+  }
+  blurNav(e){
+    console.log('b');
+    $('nav').addClass('nav-transparent');
+    $('nav').removeClass('nav-black');
+  }
 }

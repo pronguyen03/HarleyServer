@@ -1,0 +1,34 @@
+.navbar{
+    margin-bottom: 0px;
+    border-radius: 0px;
+    z-index: 3;
+    width: 100%;
+    height: 5vh;
+    border: 1px solid black;
+    // background-color: transparent;
+}
+.nav-transparent{
+    background-color: transparent;
+    border-color: transparent;
+    position: fixed;
+    transition: 0.4s;
+    top: 0;
+}
+.nav-black{
+
+    background-color: black;
+    border-color: #000000;
+    transition: 0.5s;
+    position: fixed;
+}
+.nav-expand{
+    background-color: black;
+    border-color: #000000;
+}
+
+.active{
+    background-color: transparent;
+}
+.navbar-inverse .navbar-nav > .active > a {
+    background-color: transparent;
+}
