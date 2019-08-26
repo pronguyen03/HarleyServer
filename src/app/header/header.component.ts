@@ -24,13 +24,15 @@ export class HeaderComponent implements OnInit {
     });
   }
   focusNav(e){
-    console.log('a');
     $('nav').removeClass('nav-transparent');
     $('nav').addClass('nav-black');
   }
   blurNav(e){
-    console.log('b');
     $('nav').addClass('nav-transparent');
     $('nav').removeClass('nav-black');
+  }
+  scrollToElement(id: string){
+    let element = document.getElementById(id);
+    element.scrollIntoView({behavior: "smooth"});
   }
 }

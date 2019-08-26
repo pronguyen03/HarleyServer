@@ -11,15 +11,15 @@
     background-color: transparent;
     border-color: transparent;
     position: fixed;
-    transition: 0.4s;
     top: 0;
+    transition: 0.4s;
 }
 .nav-black{
-
+    display: block;
     background-color: black;
     border-color: #000000;
-    transition: 0.5s;
     position: fixed;
+    transition: 0.5s;
 }
 .nav-expand{
     background-color: black;
@@ -31,4 +31,8 @@
 }
 .navbar-inverse .navbar-nav > .active > a {
     background-color: transparent;
+}
+a:hover {
+    background-color: transparent;
+    cursor: pointer;
 }

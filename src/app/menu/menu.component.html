@@ -1,92 +1,10 @@
-<div style="background-image: url('../../assets/images/menu/bg_4.jpg')">
-<div
-  class="carousel fade-carousel slide"
-  data-ride="carousel"
-  data-interval="4000"
-  id="bs-carousel"
->
-  <!-- Overlay -->
-  <div class="overlay"></div> 
-
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
-    <li data-target="#bs-carousel" data-slide-to="1"></li>
-    <li data-target="#bs-carousel" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item slides active">
-      <div class="slide-1"></div>
-
-      <div class="hero">
-        <div>
-          <h1>We are creative</h1>
-          <h3>Get start your next awesome project</h3>
-        </div>
-        <button class="btn btn-hero btn-lg" role="button">
-          See all features
-        </button>
-      </div>
-    </div>
-    <div class="item slides">
-      <div class="slide-2"></div>
-      <div class="hero">
-        <div>
-          <h1>We are smart</h1>
-          <h3>Get start your next awesome project</h3>
-        </div>
-        <button class="btn btn-hero btn-lg" role="button">
-          See all features
-        </button>
-      </div>
-    </div>
-    <div class="item slides">
-      <div class="slide-3"></div>
-      <div class="hero">
-        <div>
-          <h1>We are amazing</h1>
-          <h3>Get start your next awesome project</h3>
-        </div>
-        <button class="btn btn-hero btn-lg" role="button">
-          See all features
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div style="position: fixed; bottom: 0px; right:0px; z-index: 2;">
-  <button
-    type="button"
-    (click)="changePopup()"
-    class="side-button"
-    [ngClass]="{'side-button-dialog': isShown === true}"
-    
-    >
-    <img src="../../assets/images/dialog_icon.png" class="img-responsive" alt="Image" width="50" height="50" *ngIf="isShown === false">
-  <img src="../../assets/images/angle-arrow-down.png" class="img-responsive" alt="Image" width="20" height="20" *ngIf="isShown === true">
-  <!-- {{ displayButton }} -->
-  </button>
-  <iframe
-    style="    display: flex;"
-    *ngIf="isShown === true"
-    allow="microphone;"
-    width="300"
-    height="400"
-    src="https://console.dialogflow.com/api-client/demo/embedded/a1669dd2-9cf7-4600-ac8f-b0431a613465"
-  >
-  </iframe>
-</div>
-
-
 <section class="ftco-section">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Our Menu</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <h2 class="mb-4">Favourite Beverages</h2>
+            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            <p class="mt-5">You deserve good things, like bubble tea.</p>
           </div>
         </div>
     	</div>
@@ -114,7 +32,7 @@
           <div class="col-md-7 heading-section text-center ftco-animate">
             <h2 class="mb-4">Our Menu Pricing</h2>
             <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-            <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <p class="mt-5">"You can't buy happiness, but you can buy tea and that's kind of the same thing." </p>
           </div>
         </div>
         <div class="row">
@@ -134,8 +52,6 @@
 					</div>
 				</div>
 			</div>
-			
-
         	<div class="col-md-6">
 				<div *ngFor="let item of menu; let i = index">
 					<div class="pricing-entry d-flex ftco-animate" *ngIf="i % 2 !== 0">
@@ -155,6 +71,3 @@
         </div>
     	</div>
     </section>
-
-    
-</div>
