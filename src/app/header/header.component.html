@@ -15,7 +15,7 @@
         <li><a href="#">About Us</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul *ngIf="!user.uid" class="nav navbar-nav navbar-right">
         <li>
           <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
         </li>
@@ -25,6 +25,19 @@
           >
         </li>
       </ul>
+      <ul *ngIf="user.uid" class="nav navbar-nav navbar-right dropdown">
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img class="avatar" [src]="user.avatar"> {{ user.display_name }} <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu black">
+              <li><a href="#"><i class="fas fa-user-circle"></i> My Profile</a></li>
+              <li><a href="#" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </li>
+        
+      </ul>
+      
     </div>
     </div>
   </nav>

@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-.btn {
-    margin-bottom: 7px;
-}
 .black{
     background-color: black;
+    color: #ffffff;
+}
+.black > li > a {
+    color: #ffffff;
+}
+.black > li > a:hover{
+    background-color: #333333;
+    color: #ffffff;
 }

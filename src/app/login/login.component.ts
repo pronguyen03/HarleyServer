@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { LoginService } from "./login.service";
+import { User } from '../shared/classes/user';
 declare var $: any;
 @Component({
   selector: "app-login",
@@ -8,6 +9,9 @@ declare var $: any;
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
+  showLoading = false;
+  loginFail = false;
+  messageError: string;
   initForm() {
     this.loginForm = new FormGroup({
       email: new FormControl(""),
@@ -15,7 +19,7 @@ export class LoginComponent implements OnInit {
     });
   }
   public loginForm: FormGroup;
-  constructor(public loginService: LoginService) {
+  constructor(public loginService: LoginService, private user: User) {
     this.initForm();
   }
 
@@ -30,11 +34,39 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let email = this.getValueFromFormName('email');
-    let password = this.getValueFromFormName('password');
-    if (email === 'yaphets1603@gmail.com' && password === 'anhnguyen'){
-      $('#login-modal').modal('hide');
-      alert('Success');
+    if (this.loginForm.invalid){
+      this.loginFail = true;
+    }
+    let { email, password } = this.loginForm.value;
+    this.showLoading = true;
+    this.loginService.login(email, password).then(result => {
+      this.showLoading = false;
+      if (result) {
+        this.user.setUser(result.user);
+        $('#login-modal').modal('hide');
+        this.loginForm.reset();
+        // if (result.status == UserStatus.BLOCK) {
+        //   this.loginFail = true;
+        //   this.messageError = "Account Block";
+        // } else {
+        //   this.loginFail = false;
+        //   this.user.setUser(result)
+        //   this.navToHome()
+        // }
+      }
+    }, (err) => {
+      this.showLoading = false;
+      this.loginFail = true;
+      this.messageError = err.message;
+      // if (this.messageError == 'account blocked') {
+      //   $("#request-password").modal("show");
+      // }
+    })
+  }
+  keyPress(event: any){
+    this.loginFail = false;
+    if (event.keyCode === 13){
+      this.login();
     }
   }
 }

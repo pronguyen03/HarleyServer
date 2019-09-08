@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../shared/classes/user';
+import { LoginService } from '../login/login.service';
 declare var $: any;
 @Component({
   selector: 'app-header',
@@ -6,8 +8,13 @@ declare var $: any;
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  constructor(private user: User, private loginService: LoginService) {
+    let userStorage = JSON.parse(localStorage.getItem('user'));
+    if (userStorage){
+      this.user.setUser(userStorage);
+      console.log(this.user.uid);
+    }
+  }
 
   ngOnInit() {
   }
@@ -34,5 +41,9 @@ export class HeaderComponent implements OnInit {
   scrollToElement(id: string){
     let element = document.getElementById(id);
     element.scrollIntoView({behavior: "smooth"});
+  }
+  logout(){
+    this.loginService.logout();
+    this.user.setEmpty();
   }
 }
