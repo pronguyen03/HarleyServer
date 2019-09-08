@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from 'firebase/app';
+import { auth, User } from 'firebase/app';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
-  constructor(private afAuth: AngularFireAuth) { }
+  user: User;
+  constructor(private afAuth: AngularFireAuth, private router: Router) { 
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.user = user;
+        localStorage.setItem('user', JSON.stringify(this.user));
+      } else {
+        localStorage.setItem('user', null);
+      }
+    })
+  }
 
   FacebookAuth() {
     return this.AuthLogin(new auth.FacebookAuthProvider());
@@ -20,4 +30,22 @@ export class LoginService {
         console.log(error)
     })
   }
+
+  login(email:  string, password:  string) {
+    try {
+        return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    } catch (e) {
+        alert("Error!"  +  e.message);
+    }
+  }
+
+  async logout(){
+    await this.afAuth.auth.signOut();
+    localStorage.removeItem('user');
+  }
+
+  get isLoggedIn(): boolean {
+    const  user  =  JSON.parse(localStorage.getItem('user'));
+    return  user  !==  null;
+}
 }

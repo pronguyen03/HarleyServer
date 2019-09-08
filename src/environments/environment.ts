@@ -12,6 +12,9 @@ export const environment = {
     storageBucket: "",
     messagingSenderId: "971516452362",
     appId: "1:971516452362:web:167bab7484bca014"
+  },
+  dialogflow: {
+    angularBot: '6e1779f39b5a4835b892ef4bc6ee82b4'
   }
 };
 

@@ -18,10 +18,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import {AngularFireMessagingModule} from '@angular/fire/messaging';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeaderComponent, DashboardComponent, MenuComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, DashboardComponent, MenuComponent, ChatbotComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule
   ,AngularFireModule.initializeApp(environment.firebase)
   ,AngularFireAuthModule
