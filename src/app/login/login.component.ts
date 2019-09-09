@@ -63,6 +63,16 @@ export class LoginComponent implements OnInit {
       // }
     })
   }
+
+  loginFacebook(){
+    this.loginService.FacebookAuth().then((result) => {
+      console.log(result);
+    }, (err) => {
+      this.loginFail = true;
+      this.messageError = err.message;
+    });
+  }
+
   keyPress(event: any){
     this.loginFail = false;
     if (event.keyCode === 13){

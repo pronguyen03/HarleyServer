@@ -4,14 +4,14 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" (click)="changeBackground()">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>                          
       </button>
-        <a class="navbar-brand" href="#">Harley Milk Tea</a>
+        <a class="navbar-brand" (click)="navTo('/')">Harley Milk Tea</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a (click)="scrollToElement('menu')">Menu</a></li>
+        <li class="active"><a (click)="navTo('/')">Home</a></li>
+        <li><a  (click)="navTo('/dashboard/menu')">Menu</a></li>
         <li><a href="#">About Us</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
@@ -31,8 +31,9 @@
               <img class="avatar" [src]="user.avatar"> {{ user.display_name }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu black">
-              <li><a href="#"><i class="fas fa-user-circle"></i> My Profile</a></li>
-              <li><a href="#" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+              <li><a (click)="navTo('/personal/profile')"><i class="fas fa-user-circle"></i>  My Profile</a></li>
+              <li><a href="#"><i class="fas fa-coffee"></i> My Orders</a></li>
+              <li><a href="#" (click)="logout()"><i class="fas fa-sign-out-alt"></i>  Logout</a></li>
             </ul>
         </li>
         

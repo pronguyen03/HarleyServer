@@ -8,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   isShown: boolean = false;
   displayButton: string = 'Show chat';
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+    // viewChild is set after the view has been initialized
+        if (window.location.pathname == "/dashboard/menu"){
+        this.scrollToElement('menu');
+        // setTimeout(() => {
+      //   this.scrollToElement('menu');
+      // }, 1000);
+    }
   }
 
   changePopup(){
@@ -22,5 +34,10 @@ export class DashboardComponent implements OnInit {
       this.isShown = true;
       this.displayButton = 'Hide chat';
     }
+  }
+
+  scrollToElement(id: string){
+    let element = document.getElementById(id);
+    element.scrollIntoView({behavior: "smooth"});
   }
 }
