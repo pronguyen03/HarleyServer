@@ -19,6 +19,7 @@ import {AngularFireMessagingModule} from '@angular/fire/messaging';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { PersonalModule } from './personal/personal.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
   , AngularFirestoreModule
   , AngularFireStorageModule
   , AngularFireMessagingModule
+  ,PersonalModule
 ],
   providers: [],
   bootstrap: [AppComponent]

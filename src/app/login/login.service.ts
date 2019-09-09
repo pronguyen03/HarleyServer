@@ -23,12 +23,7 @@ export class LoginService {
   }  
 
   AuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-    .then((result) => {
-        console.log('You have been successfully logged in!')
-    }).catch((error) => {
-        console.log(error)
-    })
+    return this.afAuth.auth.signInWithPopup(provider);
   }
 
   login(email:  string, password:  string) {

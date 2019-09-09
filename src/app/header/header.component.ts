@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/classes/user';
 import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-header',
@@ -8,11 +9,11 @@ declare var $: any;
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private user: User, private loginService: LoginService) {
+  constructor(private user: User, private loginService: LoginService, private router: Router) {
     let userStorage = JSON.parse(localStorage.getItem('user'));
     if (userStorage){
       this.user.setUser(userStorage);
-      console.log(this.user.uid);
+      console.log(this.user);
     }
   }
 
@@ -31,8 +32,8 @@ export class HeaderComponent implements OnInit {
     });
   }
   focusNav(e){
-    $('nav').removeClass('nav-transparent');
-    $('nav').addClass('nav-black');
+    // $('nav').removeClass('nav-transparent');
+    // $('nav').addClass('nav-black');
   }
   blurNav(e){
     $('nav').addClass('nav-transparent');
@@ -45,5 +46,9 @@ export class HeaderComponent implements OnInit {
   logout(){
     this.loginService.logout();
     this.user.setEmpty();
+  }
+
+  navTo(link: string){
+    this.router.navigate([link]);
   }
 }

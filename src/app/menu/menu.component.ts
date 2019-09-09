@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $: any;
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -27,22 +27,19 @@ export class MenuComponent implements OnInit {
   }
   
   ngAfterViewInit() {
-    import('../../assets/js/menu/main.js');
-
+    this.contentWayPoint();
   }
 
   processMenu(){
     let menu = [];
-    let i = 0;
-    this.menuFromServer.forEach(element => {
-      if(i<3){
+    this.menuFromServer.forEach( (element,index) => {
+      if(index<3){
         element["isRight"] = true;
       }
-      else if(i<6){
+      else if(index<6){
         element["isRight"] = false;
       }
       menu.push(element);
-      i++;
     });
     return menu;
   }
@@ -58,4 +55,35 @@ export class MenuComponent implements OnInit {
     }
   }
   
+  // Animation
+  contentWayPoint(){
+    let i = 0;
+    $('.ftco-animate').waypoint( function( direction ) {
+      if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
+        i++;
+        $(this.element).addClass('item-animate');
+        setTimeout(function(){
+  
+          $('body .ftco-animate.item-animate').each(function(k){
+            var el = $(this);
+            setTimeout( function () {
+              var effect = el.data('animate-effect');
+              if ( effect === 'fadeIn') {
+                el.addClass('fadeIn ftco-animated');
+              } else if ( effect === 'fadeInLeft') {
+                el.addClass('fadeInLeft ftco-animated');
+              } else if ( effect === 'fadeInRight') {
+                el.addClass('fadeInRight ftco-animated');
+              } else {
+                el.addClass('fadeInUp ftco-animated');
+              }
+              el.removeClass('item-animate');
+            },  k * 50, 'easeInOutExpo' );
+          });
+          
+        }, 100);
+      }
+    } , { offset: '95%' } );
+  }
 }
+
