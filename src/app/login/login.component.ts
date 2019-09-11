@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { LoginService } from "./login.service";
 import { User } from '../shared/classes/user';
+import { UserService } from '../shared/services/user.service';
 declare var $: any;
 @Component({
   selector: "app-login",
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     });
   }
   public loginForm: FormGroup;
-  constructor(public loginService: LoginService, private user: User) {
+  constructor(public loginService: LoginService, private user: User, private userService: UserService) {
     this.initForm();
   }
 
@@ -48,22 +49,11 @@ export class LoginComponent implements OnInit {
         this.user.setUser(result.user);
         $('#login-modal').modal('hide');
         this.loginForm.reset();
-        // if (result.status == UserStatus.BLOCK) {
-        //   this.loginFail = true;
-        //   this.messageError = "Account Block";
-        // } else {
-        //   this.loginFail = false;
-        //   this.user.setUser(result)
-        //   this.navToHome()
-        // }
       }
     }, (err) => {
       this.showLoading = false;
       this.loginFail = true;
       this.messageError = err.message;
-      // if (this.messageError == 'account blocked') {
-      //   $("#request-password").modal("show");
-      // }
     })
   }
 

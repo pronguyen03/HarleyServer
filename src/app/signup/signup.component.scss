@@ -1,4 +1,4 @@
-.login-btn-group {
+.signup-btn-group {
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -6,7 +6,7 @@
     /* align-items: center; */
     font-family: Poppins-Regular;
 }
-.btn-login {
+.btn-signup {
     margin: 20px 0 10px 0;
     height: 45px;
     border-radius: 15px;
@@ -29,45 +29,11 @@
     transition: all 0.2s;
 }
 
-.btn-login:hover,
-.btn-login:focus {
+.btn-signup:hover,
+.btn-signup:focus {
     background-position: 100% 0;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-}
-
-.btn-fb {
-    margin: 10px 0 10px 0;
-    height: 45px;
-    border-radius: 15px;
-    font-size: 18px;
-    color: #fff;
-    background: #3578E5;
-    transition:  0.4s;
-    // background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(204, 138, 18) 0%, #333333 100.2% );
-}
-
-.btn-fb:hover,
-.btn-fb:focus {
-    background: #4267B2;
-    transition:  0.4s;
-}
-.line {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -webkit-flex-shrink: 1;
-    -ms-flex-negative: 1;
-    flex-shrink: 1;
-    background-color: #d6cbcb;
-    height: 1px;
-    position: relative;
-}
-
-.separator {
-    display: flex;
-    align-items: center;
 }

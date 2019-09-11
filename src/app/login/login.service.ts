@@ -42,5 +42,13 @@ export class LoginService {
   get isLoggedIn(): boolean {
     const  user  =  JSON.parse(localStorage.getItem('user'));
     return  user  !==  null;
-}
+  }
+
+  signUp(email: string, password: string) {
+    try {
+      return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    } catch (e) {
+        alert("Error!"  +  e.message);
+    }
+  }
 }

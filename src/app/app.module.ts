@@ -20,10 +20,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { PersonalModule } from './personal/personal.module';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeaderComponent, DashboardComponent, MenuComponent, ChatbotComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, DashboardComponent, MenuComponent, ChatbotComponent, SignupComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule
   ,AngularFireModule.initializeApp(environment.firebase)
   ,AngularFireAuthModule

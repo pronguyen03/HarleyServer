@@ -17,7 +17,7 @@
       </ul>
       <ul *ngIf="!user.uid" class="nav navbar-nav navbar-right">
         <li>
-          <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+          <a href="#signup-modal" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
         </li>
         <li>
           <a href="#login-modal" data-toggle="modal"
@@ -28,7 +28,7 @@
       <ul *ngIf="user.uid" class="nav navbar-nav navbar-right dropdown">
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img class="avatar" [src]="user.avatar"> {{ user.display_name }} <span class="caret"></span>
+              <img *ngIf="user.avatar" class="avatar" [src]="user.avatar"> {{ user.display_name }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu black">
               <li><a (click)="navTo('/personal/profile')"><i class="fas fa-user-circle"></i>  My Profile</a></li>
@@ -67,3 +67,27 @@
     </div>
   </div>
   
+
+  <!-- Sign Up Modal -->
+<!-- Modal -->
+<div id="signup-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <app-signup></app-signup>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

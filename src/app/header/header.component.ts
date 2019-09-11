@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { User } from '../shared/classes/user';
 import { LoginService } from '../login/login.service';
 import { Router } from '@angular/router';
@@ -10,14 +10,19 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
   constructor(private user: User, private loginService: LoginService, private router: Router) {
+  }
+
+  ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
     let userStorage = JSON.parse(localStorage.getItem('user'));
     if (userStorage){
       this.user.setUser(userStorage);
       console.log(this.user);
     }
-  }
-
-  ngOnInit() {
   }
   changeBackground(){
     $(".collapse").on('show.bs.collapse', function(){

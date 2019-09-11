@@ -3,6 +3,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/classes/user';
 import { FormGroup, FormBuilder, ReactiveFormsModule  } from '@angular/forms';
 import { DocumentSnapshot } from '@angular/fire/firestore';
+declare var $: any;
 
 @Component({
   selector: 'app-user-profile',
@@ -25,6 +26,15 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     this.bindUserData();
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    $('.input-group.date').datepicker({
+      'format': 'dd-mm-yyyy',
+      'autoclose': true
+    });
   }
 
   initForm(){
@@ -58,4 +68,26 @@ export class UserProfileComponent implements OnInit {
     return this.userForm.controls[name].value;
   }
 
+  saveForm(): void{
+    let data = this.getDataUpload();
+    let uid = this.user.uid;
+
+    this.userService.updateUserByUid(uid, data).then((result) => {
+      console.log('Updated user successfully');
+    }, err => {
+      console.error(err);
+    });
+  }
+
+  getDataUpload(): any {
+    let data = {
+      displayName: this.getValueFromFormName('displayName'),
+      email: this.getValueFromFormName('email'),
+      firstName: this.getValueFromFormName('firstName'),
+      lastName: this.getValueFromFormName('lastName'),
+      phoneNumber: this.getValueFromFormName('phoneNumber'),
+      birthday: this.getValueFromFormName('birthday')
+    }
+    return data;
+  }
 }
