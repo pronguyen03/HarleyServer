@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngAfterViewInit(): void {
+  }
+
   setValueFromFormName(name: string, value: any){
     return this.loginForm.controls[name].setValue(value);
   }
